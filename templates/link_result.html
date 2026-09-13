@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">لینک و کد QR پویا</h5>
+      <p class="card-text">
+        <a href="{{ link }}" target="_blank">{{ link }}</a>
+      </p>
+      <img id="qr-code" src="" alt="کد QR" class="img-fluid">
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+  <script>
+    
+    const link = "{{ link }}";
+  
+ 
+    const qrCodeElement = document.getElementById("qr-code");
+    QRCode.toDataURL(link, function (err, url) {
+      if (err) {
+        console.error(err);
+      } else {
+        qrCodeElement.src = url;
+      }
+    });
+  </script>
+  
